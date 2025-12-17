@@ -12,12 +12,9 @@ function App() {
   return (
     <>
       <div>
-        <div>
-          <CategoryBtn allCategories={allCategories} />
-        </div>
-        <div>
-          <Product allProducts={allProducts} />
-        </div>
+        <CategoryBtn allCategories={allCategories} />
+
+        <Product allProducts={allProducts} />
       </div>
     </>
   );

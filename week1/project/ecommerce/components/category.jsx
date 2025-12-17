@@ -37,13 +37,13 @@ function CategoryBtn(props) {
   //
   const { allCategories = [] } = props;
   return (
-    <div>
+    <div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md p-4 flex flex-wrap justify-center gap-2 shadow-sm">
       {allCategories.map((category) => {
         return (
           <button
             id={category.replace("FAKE: ", "")}
             key={category}
-            className="rounded-md bg-green-500 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+            className="rounded-md bg-green-500 py-2 px-4 text-sm text-white hover:bg-green-700 transition-all"
             type="button"
             onClick={buttonClick}
           >

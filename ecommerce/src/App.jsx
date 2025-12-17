@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import CategoryBtn from "../components/category";
-// import allCategories from "./fake-data/all-categories";
+import allCategories from "./fake-data/all-categories";
 import Product from "../components/product";
+import allProducts from "./fake-data/all-products";
 
 console.log("Buttons", CategoryBtn);
 function App() {
@@ -12,10 +13,10 @@ function App() {
     <>
       <div>
         <div>
-          <CategoryBtn />
+          <CategoryBtn allCategories={allCategories} />
         </div>
         <div>
-          <Product />
+          <Product allProducts={allProducts} />
         </div>
       </div>
     </>

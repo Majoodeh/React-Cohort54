@@ -1,19 +1,22 @@
 import React from "react";
-import allCategories from "../src/fake-data/all-categories";
 
-const categoriesArr = allCategories.map((category) => {
+function CategoryBtn(props) {
+  const { allCategories = [] } = props;
   return (
-    <button
-      className="rounded-md bg-green-500 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
-      type="button"
-    >
-      {category}
-    </button>
+    <div>
+      {allCategories.map((category) => {
+        return (
+          <button
+            key={category}
+            className="rounded-md bg-green-500 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-green-700 focus:shadow-none active:bg-green-700 hover:bg-green-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2"
+            type="button"
+          >
+            {category}
+          </button>
+        );
+      })}
+    </div>
   );
-});
-
-function CategoryBtn() {
-  return <div>{categoriesArr}</div>;
 }
 
 export default CategoryBtn;

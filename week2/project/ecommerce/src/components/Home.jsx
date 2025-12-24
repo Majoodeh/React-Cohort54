@@ -1,11 +1,47 @@
 import React from "react";
+import { useEffect } from "react";
 
-export default function Home(props) {
-  const { allProducts = [] } = props;
+export default function Home() {
+  const [products, setProducts] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      console.log("Fetching products...");
+      try {
+        const response = await fetch(
+          "https://fakestoreapi.com/products?limit=50"
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to get products");
+        }
+        const data = await response.json();
+        console.log("Data are", data);
+
+        setProducts(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getProducts();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="pt-40 pb-10 px-4 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto">
+        Products are loading...
+      </div>
+    );
+  }
 
   return (
     <div className="pt-40 pb-10 px-4 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto">
-      {allProducts.map((product) => {
+      {products.map((product) => {
         return (
           <div
             id={product.category}

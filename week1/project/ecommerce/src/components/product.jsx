@@ -16,7 +16,7 @@ export default function Product(props) {
               <img
                 src={product.image}
                 alt="card-image"
-                class="max-h-full object-contain"
+                className="max-h-full object-contain"
               />
             </div>
             <div className="p-4 flex-grow">

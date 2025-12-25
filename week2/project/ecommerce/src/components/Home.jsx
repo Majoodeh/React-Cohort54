@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [products, setProducts] = React.useState([]);
@@ -64,12 +65,12 @@ export default function Home() {
               </p>
             </div>
             <div className="p-4 pt-0">
-              <button
-                className="w-full rounded-md bg-green-500 py-2 text-sm text-white hover:bg-slate-700 transition-all"
-                type="button"
+              <Link
+                to={`/${product.id}`}
+                className="block  text-center w-full rounded-md bg-green-500 py-2 text-sm text-white hover:bg-green-700 transition-all"
               >
                 Buy Now
-              </button>
+              </Link>
             </div>
           </div>
         );

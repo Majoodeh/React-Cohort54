@@ -28,7 +28,7 @@ const router = createBrowserRouter(
           </>
         }
       />
-      <Route path=":id" element={<Product />} />
+      <Route path=":productId" element={<Product />} />
     </Route>
   )
 );

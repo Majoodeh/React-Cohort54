@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,9 +11,7 @@ import Home from "./components/Home.jsx";
 
 import Layout from "./Layout.jsx";
 import Category from "./components/Category.jsx";
-import allProducts from "./fake-data/all-products.js";
 import Product from "./components/Product.jsx";
-import allCategories from "./fake-data/all-categories.js";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,8 +20,8 @@ const router = createBrowserRouter(
         index
         element={
           <>
-            <Category allCategories={allCategories} />
-            <Home allProducts={allProducts} />
+            <Category />
+            <Home />
           </>
         }
       />

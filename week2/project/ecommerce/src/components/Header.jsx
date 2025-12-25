@@ -8,16 +8,12 @@ function Header() {
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
             <li>
-              <NavLink
+              <Link
                 to="/"
-                className={({ isActive }) =>
-                  `block py-2 pr-4 pl-3 duration-200 ${
-                    isActive ? "text-orange-700" : "text-gray-700"
-                  } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
-                }
+                className="block py-2 pr-4 pl-3 text-green-600 font-semibold transition-all duration-300 hover:text-green-900 lg:p-0 lg:hover:-translate-y-0.5 active:scale-95"
               >
                 Home
-              </NavLink>
+              </Link>
             </li>
           </ul>
         </div>

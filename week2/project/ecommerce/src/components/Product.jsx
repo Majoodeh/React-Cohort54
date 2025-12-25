@@ -6,13 +6,9 @@ function Product() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { productId } = useParams();
-  console.log("Product ID >>>", productId);
 
   useEffect(() => {
     const getProductDetails = async () => {
-      console.log("Fetching products...");
-      const link = `https://fakestoreapi.com/products/${productId}`;
-      console.log("link is: >>>", link);
       try {
         const response = await fetch(
           `            https://fakestoreapi.com/products/${productId}
@@ -23,26 +19,26 @@ function Product() {
           throw new Error("Failed to get products");
         }
         const data = await response.json();
-        console.log("Product >>>", data);
 
         setProduct(data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching product details:", error);
+        setLoading(false);
       } finally {
-        console.log("Finalizing fetch...");
+        setLoading(false);
       }
     };
     getProductDetails();
-    console.log("Product after fetch call:", product);
-    console.log("type of produtc", typeof product);
-
-    // console.log("product1", product.id);
   }, [productId]);
 
-  if (!product) {
-    return <div>Loading product details...</div>;
+  if (loading || !product) {
+    return (
+      <div className="pt-40 pb-10 px-4 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto">
+        Products are loading...
+      </div>
+    );
   }
-
   return (
     <section class="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
       <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">

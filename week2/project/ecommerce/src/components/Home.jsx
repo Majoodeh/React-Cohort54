@@ -8,7 +8,6 @@ export default function Home() {
 
   useEffect(() => {
     const getProducts = async () => {
-      console.log("Fetching products...");
       try {
         const response = await fetch(
           "https://fakestoreapi.com/products?limit=50"
@@ -18,7 +17,6 @@ export default function Home() {
           throw new Error("Failed to get products");
         }
         const data = await response.json();
-        console.log("Data are", data);
 
         setProducts(data);
         setLoading(false);

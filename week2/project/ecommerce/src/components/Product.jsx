@@ -10,7 +10,6 @@ function Product() {
 
   function starRating() {
     const rating = Math.round(product.rating.rate);
-    console.log("rating", rating);
 
     let starsArray = [];
     let i = 1;

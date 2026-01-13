@@ -24,6 +24,7 @@ function Category() {
     getCategories();
   }, []);
 
+  let isClicked = false;
   let buttonsArr = [];
   const buttonClick = (event) => {
     const button = event.target.id;

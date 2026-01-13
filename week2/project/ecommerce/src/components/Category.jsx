@@ -1,8 +1,8 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Category() {
-  const [categories, setCategories] = React.useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -19,14 +19,11 @@ function Category() {
         setCategories(data);
       } catch (error) {
         console.error("Error fetching products:", error);
-      } finally {
-        return;
       }
     };
     getCategories();
   }, []);
 
-  let isClicked = false;
   let buttonsArr = [];
   const buttonClick = (event) => {
     const button = event.target.id;

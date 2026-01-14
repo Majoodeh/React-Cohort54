@@ -24,24 +24,12 @@ function Category() {
     getCategories();
   }, []);
 
-  let isClicked = false;
   let buttonsArr = [];
   const buttonClick = (event) => {
     const button = event.target.id;
     const products = document.querySelectorAll(".product-item");
 
-    // if pressed the same button twice
-    if (buttonsArr.includes(button)) {
-      products.forEach((product) => {
-        product.style.display = "block";
-      });
-      buttonsArr = [];
-      isClicked = false;
-      return;
-    }
     buttonsArr.push(button);
-
-    isClicked = true;
 
     products.forEach((product) => {
       if (product.id !== button) {

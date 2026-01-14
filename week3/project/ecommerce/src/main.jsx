@@ -26,6 +26,7 @@ const router = createBrowserRouter(
         }
       />
       <Route path=":productId" element={<Product />} />
+      {/* <Route path ='/favorites' element ={favorites}/> */}
     </Route>
   )
 );
@@ -35,4 +36,3 @@ createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </StrictMode>
 );
-

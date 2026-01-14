@@ -15,6 +15,14 @@ function Header() {
                 Home
               </Link>
             </li>
+            <li>
+              <Link
+                to="/favourites"
+                className="block py-2 pr-4 pl-3 text-green-600 font-semibold transition-all duration-300 hover:text-green-900 lg:p-0 lg:hover:-translate-y-0.5 active:scale-95"
+              >
+                Favorites
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

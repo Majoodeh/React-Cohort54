@@ -12,8 +12,8 @@ import Home from "./components/Home.jsx";
 import Layout from "./Layout.jsx";
 import Category from "./components/Category.jsx";
 import Product from "./components/Product.jsx";
-import { FavoritesProvider } from "./FavoritesContext.js";
-import FavoritesContext from "./FavoritesContext.js";
+import { FavoritesProvider } from "./components/FavoritesContext.jsx";
+import FavoritesPage from "./components/FavoritesPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
         }
       />
       <Route path=":productId" element={<Product />} />
-      <Route path="/favorites" element={<FavoriteProducts />} />
+      <Route path="/favourites" element={<FavoritesPage />} />
     </Route>
   )
 );

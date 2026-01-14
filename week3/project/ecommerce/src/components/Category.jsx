@@ -26,13 +26,13 @@ function Category() {
 
   let buttonsArr = [];
   const buttonClick = (event) => {
-    const button = event.target.id;
+    const button = event.currentTarget.dataset.category;
     const products = document.querySelectorAll(".product-item");
 
     buttonsArr.push(button);
 
     products.forEach((product) => {
-      if (product.id !== button) {
+      if (product.dataset.category !== button) {
         product.style.display = "none";
       } else {
         product.style.display = "block";
@@ -46,7 +46,7 @@ function Category() {
         {categories.map((category) => {
           return (
             <button
-              id={category.replace("FAKE: ", "")}
+              data-category={category.replace("FAKE: ", "")}
               key={category}
               className="rounded-md bg-green-500 py-2 px-4 text-sm text-white hover:bg-green-700 transition-all"
               type="button"

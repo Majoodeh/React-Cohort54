@@ -1,12 +1,23 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import useFetchUrl from "./Hooks/useFetchUrl.js";
 import Message from "./Message.jsx";
 import ProductCard from "./ProductCard.jsx";
+import FavoritesContext from "./FavoritesContext.jsx";
 
-const URL = "https://fakestoreapi.com/products?limit=50";
+function FavoritesPage() {
+  const { favorites } = useContext(FavoritesContext);
 
-export default function Home() {
-  const { data, loading, error } = useFetchUrl(URL);
+  const favoritesUrls = useMemo(() => {
+    return favorites.map((favoriteId) => {
+      return `https://fakestoreapi.com/products/${favoriteId}`;
+    });
+  }, [favorites]);
+
+  const { data, loading, error } = useFetchUrl(favoritesUrls);
+
+  if (favorites.length === 0) {
+    return <div>Favorites is empty</div>;
+  }
 
   if (loading) {
     return <Message message={"Products are loading..."} />;
@@ -15,7 +26,6 @@ export default function Home() {
   if (error) {
     return <Message message={error} />;
   }
-  console.log(data);
 
   return (
     <div className="pt-40 pb-10 px-4 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto">
@@ -25,3 +35,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default FavoritesPage;
